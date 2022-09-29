@@ -273,9 +273,12 @@ def fetch_dependencies(repo_path, fallback_branch = None):
         if len(priv_list) > 0:
             print('Adding private dependencies to manifest')
             add_to_manifest('private', "FIK-NaroOS", priv_list, fallback_branch)
+        if len(fetch_list) > 0:
+            print('Adding dependencies to manifest')
+            add_to_manifest('nenggala', "nenggala-project", fetch_list, fallback_branch)
         if len(out_list) > 0:
             print('Add lineageos dependencies in manifest')
-            add_to_manifest('lineage', "LineageOS", out_list, fallback_branch)
+            add_to_manifest('github', "LineageOS", out_list, fallback_branch)
 
     else:
         print('%s has no additional dependencies.' % repo_path)
