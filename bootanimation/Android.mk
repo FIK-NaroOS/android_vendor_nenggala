@@ -37,8 +37,8 @@ $(TARGET_GENERATED_BOOTANIMATION): $(SOONG_ZIP)
 	for part_cnt in 0 1 2 3 4; do \
 	    mkdir -p $(INTERMEDIATES)/part$$part_cnt; \
 	done; \
-	prebuilts/tools-lineage/${HOST_OS}-x86/bin/mogrify -resize $$RESOLUTION -colors 250 $(INTERMEDIATES)/*/*.png; \
-	echo "1080 1920 60" > $(INTERMEDIATES)/desc.txt; \
+	prebuilts/tools-lineage/${HOST_OS}-x86/bin/mogrify -resize 1080x1920 -colors 250 $(INTERMEDIATES)/*/*.png; \
+	echo "1080 1920 30" > $(INTERMEDIATES)/desc.txt; \
 	cat vendor/nenggala/bootanimation/desc.txt >> $(INTERMEDIATES)/desc.txt
 	$(hide) $(SOONG_ZIP) -L 0 -o $(TARGET_GENERATED_BOOTANIMATION) -C $(INTERMEDIATES) -D $(INTERMEDIATES)
 
